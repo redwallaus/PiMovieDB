@@ -1,0 +1,98 @@
+Created By William Smith  (http://Redwallaus.com / redwallaus@gmail.com)
+Original Idea and big thank you to Bob Belderbos (http://bobbelderbos.com/)
+
+
+This Project is to build a local movie database hosted on a Raspberry Pi and accessible by any web browser. For advice on how to implement go to 
+
+
+http://redwallaus.com/2013/04/03/build-your-own-raspberry-pi-movie-database-website/ (includes screenshots and links) or follow these steps.
+
+
+Prerequisites
+•	At least a 4gb SD Card
+•	A Raspberry Pi Plugged into your Router
+•	A Windows machine (Mac and Linux also work its just my example is on a windows machine)
+Download
+•	Putty
+•	Filezilla
+•	Php files 
+•	IMG
+•	Win32 Disk Imager
+Create SD Card
+•	Connect your SD Card to the computer and run Win32 Disk Imager
+
+•	Select the unzipped IMG file and the correct drive letter (VERY IMPORTANT, dont want to replace windows with Raspbian by accident!)
+•	Select Write
+
+•	Go pop your new Raspbian SD card into your pi.
+Configure your PI
+•	First thing you need to do is find the IP address of your Pi on your network
+•	Find IP of PI, my router allows me to do this by logging into web manager for my web page likely to be 192.168.0.1 and just type it into your web browser and then go to maintenance –> Attached Devices.
+
+•	Connect to your pi with putty by typing in the IP address and port 22 then Open.
+
+•	Login with the details pi/raspberry
+•	Type sudo raspi-config
+
+•	change memory_split to 16
+•	Select expand_rootfs
+•	Select Finish and then reboot when prompted to
+•	Reconnect with putty
+Run each of the following commands
+•	sudo apt-get update
+•	sudo apt-get upgrade -y
+•	sudo apt-get install apache2 -y
+•	sudo apt-get install mysql-server -y
+•	When prompted to set a password in my example I have used ‘raspberry’
+•	sudo apt-get install php5 -y
+•	sudo apt-get install php5-mysql -y
+•	sudo apt-get install libxml-parser-perl -y
+•	sudo apt-get install libyaml-perl -y
+•	sudo cpan
+•	yes
+•	yes
+•	install YAML::XS
+•	install XML::Simple
+•	exit
+•	mysql -u root -p
+•	Enter your Mysql password not your “pi” password
+•	CREATE DATABASE movieCol;
+•	USE movieCol;
+Paste all of this SQL query in at once not line by line
+CREATE TABLE IF NOT EXISTS `movie_collection` (
+`id` int(11) NOT NULL AUTO_INCREMENT,
+ `title` varchar(128) binary DEFAULT NULL,
+ `year` varchar(128) binary DEFAULT NULL,
+ `rated` varchar(128) binary DEFAULT NULL,
+ `released` varchar(128) binary DEFAULT NULL,
+ `genre` varchar(128) binary DEFAULT NULL,
+ `director` varchar(128) binary DEFAULT NULL,
+ `writer` varchar(128) binary DEFAULT NULL,
+ `actors` varchar(128) binary DEFAULT NULL,
+ `plot` varchar(500) binary DEFAULT NULL,
+ `poster` varchar(500) binary DEFAULT NULL,
+ `runtime` varchar(128) binary DEFAULT NULL,
+ `rating` varchar(128) binary DEFAULT NULL,
+ `votes` varchar(128) binary DEFAULT NULL,
+ `imdb` varchar(128) binary DEFAULT NULL,
+ `tstamp` varchar(128) binary DEFAULT NULL,
+ PRIMARY KEY (`id`)
+ )
+ ;
+•	SHOW TABLES;
+•	SHOW COLUMNS FROM movie_collection;
+•	exit
+•	sudo chmod 777 -R /var/www
+•	sudo chown -R www-data /var/www
+•	sudo chgrp -R www-data /var/www
+•	Connect with Filezilla
+•	Host: XXX.XXX.XX.X (IP address of your pi) Username:pi Password: raspberry port:22
+
+•	Unzip the downloaded PHP files and move them to the /var/www
+•	sudo chmod 777 -R /var/www
+•	sudo chown -R www-data /var/www
+•	sudo chgrp -R www-data /var/www
+•	sudo reboot
+Now go to http://XXX.XXX.X.XX/movies/index.php to test your new site and add a movie
+and thats it!
+
