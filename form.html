@@ -1,0 +1,14 @@
+<html>
+<body>
+
+<form action="process.php" method="post"> 
+Movie Title (to include year &y=YYYY after the title: <input type="text" name = "title"><br>  
+<input type="submit" value="Submit"> 
+</form> <br/><br/>
+<form enctype="multipart/form-data" action="uploader.php" method="POST">
+ Please choose a file: <input name="uploaded" type="file" /><br />
+ <input type="submit" value="Upload" />
+ </form>
+<br> <br/> <a href="/movies/index.php">Go to Catalogue?</a>
+</body>
+</html>

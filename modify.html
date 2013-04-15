@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  
+<head>
+
+<meta charset="utf-8">
+
+<title>Movie Modify</title>
+<style type="text/css">
+<!--
+    body {
+      color:#000000;
+      background-color:#969696;
+    }
+    a  { color:#0000FF; }
+    a:visited { color:#800080; }
+    a:hover { color:#008000; }
+    a:active { color:#FF0000; }
+    -->
+    
+</style>
+  
+</head>
+  
+<body>
+
+<P><form action="process.php" method="post"> Add a new Movie - 
+Movie Title: <input type="text" name = "title">  
+<input type="submit" value="Submit"> 
+</form>
+ </P>
+<P><form name="input" action="youtube.php" method="get">
+Add a Youtube Trailer to your movie - ID#: <input type="text" name="movie">
+Youtube Trailer Code: <input type="text" name="youtube">
+<input type="submit" value="Submit">
+</form></P>
+<P>
+<a href="/movies/index.php">Return to Catalogue?</a></P>
+<p><form name="input" action="delete.php" method="get">
+Delete a Movie - ID#: <input type="text" name="var_value">
+<input type="submit" value="Submit">
+</form></P>
+  
+</body>
+
+</html>
