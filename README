@@ -1,6 +1,21 @@
 Created By William Smith  (http://Redwallaus.com / redwallaus@gmail.com)
 Original Idea and big thank you to Bob Belderbos (http://bobbelderbos.com/)
 
+----New to Version 2-----
+
+- added batch.pl to loop through a text file to seach for movies
+- added modify page
+- added delete functionality via the modify page
+- added ipad home screen icon when bookmark saved
+- added IMDB ID search to modify page
+- added "posters only" view
+- added youtube trailers and popup viewer
+
+
+
+
+
+--HOW TO INSTALL--
 
 This Project is to build a local movie database hosted on a Raspberry Pi and accessible by any web browser. For advice on how to implement go to 
 
